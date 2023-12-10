@@ -1,17 +1,7 @@
+# WebVAPT - Web Application Security Audit Project
+## Web Audit with Offensive Security
 
-.. raw:: html
 
-   <h1 align="center">
+[https://img.shields.io/badge/python-3.6-blue.svg](https://img.shields.io/badge/python-3.11-blue.svg)
 
-.. image:: ./img/logo.png
-
-.. raw:: html
-
-   <br class="title">
-    webvapt - Web Application Security Audit Project
-   <br>
-
-.. image:: https://img.shields.io/badge/python-3.6-blue.svg
-    :target: https://www.python.org/downloads/release/python-366/
-    :alt: Python 3.11
 

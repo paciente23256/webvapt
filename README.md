@@ -7,6 +7,7 @@
 <a target="_blank" href="https://en.wikipedia.org/wiki/Python_(programming_language)">
 <img src="https://img.shields.io/static/v1?label=python&message=3.10%20|%203.11&color=informational&logo=python"/>
 </a>
+<p></p>
 
-<center><img width="50%" height="50%" src="https://raw.githubusercontent.com/paciente23256/webvapt/main/images/main_menu.png"/>
+<center><img width="30%" height="30%" src="https://raw.githubusercontent.com/paciente23256/webvapt/main/images/main_menu.png"/>
 </center>

@@ -9,5 +9,4 @@
 </a>
 <p></p>
 
-<center><img width="30%" height="30%" src="https://raw.githubusercontent.com/paciente23256/webvapt/main/images/main_menu.png"/>
-</center>
+

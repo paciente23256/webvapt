@@ -28,7 +28,7 @@
 
     sudo python3 webvapt.py
 
-## Using setup sh
+## Using setup.sh
 
 **step 1:** Give the file execute permissions
 
@@ -39,4 +39,11 @@
 **step 2:** Run WebVAPT
 
     just type webvapt
+
+
+## WebVAPT Screenshots
+**[screenshots]**
+<center><img src="https://raw.githubusercontent.com/paciente23256/webvapt/main/images/webvapt_screenshot.png">
+</center>
+
 

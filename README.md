@@ -38,7 +38,7 @@
 
 **step 2:** Run WebVAPT
 
-    just type webvapt
+    webvapt
 
 
 ## WebVAPT Screenshots

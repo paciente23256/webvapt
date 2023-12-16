@@ -10,3 +10,8 @@
 <p></p>
 
 
+**step 1:*** Fazer o download do repositório. 
+
+    git clone https://github.com/paciente23256/webvapt.git
+
+    cd webvapt

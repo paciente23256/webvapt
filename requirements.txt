@@ -1,0 +1,4 @@
+requests
+art
+termcolor
+glob2

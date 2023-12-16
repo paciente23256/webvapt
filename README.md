@@ -16,27 +16,27 @@
     git clone https://github.com/paciente23256/webvapt.git
     cd webvapt
     
-**step 2:** install python libraries
+**step 2:** install python libraries.
 
-sudo pip3 install -r conf/requirements.txt
+    sudo pip3 install -r conf/requirements.txt
 
 **step 3:** Install tools
 
-sudo apt update && apt install wapiti uniscan nmap nikto commix git dirsearch python3-pip -y
+    sudo apt update && apt install wapiti uniscan nmap nikto commix git dirsearch python3-pip -y
 
 **step 4**
 
-sudo python3 webvapt.py
+    sudo python3 webvapt.py
 
 ## Using setup sh
 
 **step 1:** Give the file execute permissions
 
-cd webvapt
-sudo chmod +x setup.sh
-sudo ./setup.sh
+    cd webvapt
+    sudo chmod +x setup.sh
+    sudo ./setup.sh
 
 **step 2:** Run WebVAPT
 
-just type webvapt
+    just type webvapt
 

@@ -45,12 +45,10 @@
 
 ## Using setup.sh
 
-**step 1:** Give the file execute permissions
+**step 1:** Download and execute setup
 
-    wget https://raw.githubusercontent.com/paciente23256/webvapt/main/setup.sh
-    chmod +x setup.sh
-    ./setup.sh
-    
+     sudo wget -O - https://raw.githubusercontent.com/paciente23256/webvapt/main/setup.sh | bash
+     
 **step 2:** Run WebVAPT
 
     webvapt

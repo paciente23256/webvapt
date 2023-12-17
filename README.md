@@ -11,11 +11,6 @@
 
 ### WebVAPT it´s a framework that automates and parameterizes well-known VAPT tools by modeling the attack, for Web applications, through the mapping of eight vulnerabilities obtained from NIST and OWASP.
 
-
-
-<img src="https://raw.githubusercontent.com/paciente23256/webvapt/main/images/map8_owasp2021.png" 
-     width="50%" 
-     height="50%" />
      
 ## Manual Setup in Kali 
 

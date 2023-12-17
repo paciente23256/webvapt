@@ -14,7 +14,7 @@
      
 ## Manual Setup in Kali 
 
-**step 1:** Download webvapt. 
+**step 1:** Download and Setup webvapt. 
 
     sudo git clone https://github.com/paciente23256/webvapt.git
     sudo mkdir /var/webvapt
@@ -23,14 +23,14 @@
     sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
     sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
         
-**step 2:** Install python pip and libraries.
+**step 2:** Install tools
 
-    sudo apt-get python3-pip -y
+    sudo apt-get update && apt-get install wapiti uniscan nmap nikto commix git dirsearch python3 python3-pip -y
+    
+   
+**step 3:**  Install python libraries.
+
     sudo pip3 install -r /var/webvapt/conf/requirements.txt
-
-**step 3:** Install Tools
-
-    sudo apt-get update && apt-get install wapiti uniscan nmap nikto commix git dirsearch -Y
 
 **step 4:** Create a symbolic-link
     

@@ -14,28 +14,38 @@
 **step 1:** Download webvapt. 
 
     git clone https://github.com/paciente23256/webvapt.git
-    cd webvapt
-    
+    sudo mkdir /var/webvapt
+    mv -r webvapt/* /var/webvapt
+    git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
+	git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
+        
 **step 2:** install python libraries.
 
-    sudo pip3 install -r conf/requirements.txt
+    sudo pip3 install -r /var/webvapt/conf/requirements.txt
 
-**step 3:** Install tools
+**step 3:** Install Tools
 
     sudo apt update && apt install wapiti uniscan nmap nikto commix git dirsearch python3-pip -y
 
-**step 4**
-
-    sudo python3 webvapt.py
+**step 4** Create a symbolic-link
+    
+    sudo ln -s /var/webvat/webvapt.py /usr/local/bin/webvapt
+    sudo chmod +x /usr/local/bin/webvapt
+    
+**step 5** Run WebVAPT
+    just type:
+    
+    webvapt
+    
 
 ## Using setup.sh
 
 **step 1:** Give the file execute permissions
 
-    cd webvapt
-    sudo chmod +x setup.sh
-    sudo ./setup.sh
-
+    wget https://raw.githubusercontent.com/paciente23256/webvapt/main/setup.sh
+    chmod +x setup.sh
+    ./setup.sh
+    
 **step 2:** Run WebVAPT
 
     webvapt

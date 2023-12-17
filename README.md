@@ -9,7 +9,7 @@
 </a>
 <p></p>
 
-### WebVAPT it´s a framework that automates and parameterizes well-known VAPT tools by modeling the attack through the mapping of eight vulnerabilities obtained from NIST and OWASP.
+### WebVAPT it´s a framework that automates and parameterizes well-known VAPT tools by modeling the attack for, Web applications, through the mapping of eight vulnerabilities obtained from NIST and OWASP.
 
 ## Manual Setup in Kali 
 

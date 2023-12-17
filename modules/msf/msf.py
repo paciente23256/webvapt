@@ -1,5 +1,15 @@
 #!/usr/bin/python
-# Aluno 23256
+# @paciente23256
+
+
+"""
+Forked from https://github.com/wez3.
+Changes: 
+* Possibility of using an IP or dns as a target;
+* Report export path;
+* New web-oriented/dedicated  modules.
+
+"""
 
 
 

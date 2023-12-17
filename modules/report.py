@@ -4,7 +4,6 @@
 import conf.conf as conf
 import glob
 
-
 def reports():
 
        
@@ -15,7 +14,7 @@ def reports():
         print(conf.colored("\n📰 List VA Reports:\n","white", attrs=["bold"],))      
        # search all files inside a specific folder
        # *.* means file name with any extension
-       	dir_path = r'reports/va/**/*.*'
+       	dir_path = r'/var/webvapt/reports/va/**/*.*'
        	for file in glob.glob(dir_path, recursive=True):
     
             #print(file)
@@ -29,7 +28,7 @@ def reports():
         print(conf.colored("\n📰 List PT Reports:\n","white", attrs=["bold"],))      
        # search all files inside a specific folder
        # *.* means file name with any extension
-       	dir_path = r'reports/pt/**/*.*'
+       	dir_path = r'/var/webvapt/reports/pt/**/*.*'
        	for file in glob.glob(dir_path, recursive=True):
     
             #print(file)
@@ -44,7 +43,7 @@ def reports():
         print(conf.colored("\n📰 List VAPT Reports:\n","white", attrs=["bold"],))      
        # search all files inside a specific folder
        # *.* means file name with any extension
-       	dir_path = r'reports/vapt/**/*.*'
+       	dir_path = r'/var/webvapt/reports/vapt/**/*.*'
        	for file in glob.glob(dir_path, recursive=True):
     
             #print(file)

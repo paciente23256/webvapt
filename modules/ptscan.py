@@ -5,7 +5,7 @@
 import conf.conf as conf
 import time
 import os
-os.path.abspath("reports/pt/")
+os.path.abspath("/var/webvapt/reports/pt/")
 
 # PT Scan
 def pt_scan():
@@ -28,12 +28,12 @@ def pt_scan():
         print(conf.colored("\n ● MSF : ", "white", attrs=["reverse"]) + conf.colored(" Web Pentest with Metasploit               ", "yellow", attrs=["reverse"]))
         #Alvo
         msf_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"])) 
-        msf_output = input(conf.colored(f"Report path  - [default: reports/pt/{msf_host}]: ","green", attrs=["bold"],))
+        msf_output = input(conf.colored(f"Report path  - [default: /var/webvapt/reports/pt/{msf_host}]: ","green", attrs=["bold"],))
         conf.not_valid(pt_scan, msf_host)
-        msf_output = conf.dir_output(msf_output, "reports/pt", msf_host)
+        msf_output = conf.dir_output(msf_output, "/var/webvapt/reports/pt/", msf_host)
         conf.create_dir(msf_output)
         # metasploit
-        conf.os.system(f"python3 modules/msf/msf.py -j 5 -t {msf_host} -f {msf_output}")
+        conf.os.system(f"python3 /var/webvapt/modules/msf/msf.py -j 5 -t {msf_host} -f {msf_output}")
         print(conf.colored("                                                    ","blue", attrs=["reverse"],))         
 
 
@@ -52,9 +52,9 @@ def pt_scan():
         print(conf.colored("\n ● SQLMAP : ", "white", attrs=["reverse"]) + conf.colored(" Web Pentest with Sqlmap                ", "yellow", attrs=["reverse"]))
         #Alvo  
         sqlmap_host = input(conf.colored("\nInsert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"])) 
-        sqlmap_output = input(conf.colored(f"report path  - [default: reports/pt/{sqlmap_host}]: ","green", attrs=["bold"],))
+        sqlmap_output = input(conf.colored(f"report path  - [default: /var/webvapt/reports/pt/{sqlmap_host}]: ","green", attrs=["bold"],))
         conf.not_valid(pt_scan, sqlmap_host)
-        sqlmap_output = conf.dir_output(sqlmap_output, "reports/pt", sqlmap_host)
+        sqlmap_output = conf.dir_output(sqlmap_output, "/var/webvapt/reports/pt/", sqlmap_host)
         conf.create_dir(sqlmap_output)
         # SQLMAP
         conf.os.system(f"sqlmap -u{sqlmap_host} --level 3 --risk 3 -a --forms --crawl=5 --batch --tamper=apostrophemask,apostrophenullencode,base64encode,between,chardoubleencode,charencode,charunicodeencode,equaltolike,greatest,ifnull2ifisnull,multiplespaces,percentage,randomcase,space2comment,space2plus,space2randomblank,unionalltounion,unmagicquotes  | tee {sqlmap_output}/sqlmap.txt ")
@@ -77,14 +77,14 @@ def pt_scan():
         print(conf.colored("\n ● COMMINX : ", "white", attrs=["reverse"]) + conf.colored(" Web Pentest with Comminx              ", "yellow", attrs=["reverse"]))
         #Alvo  
         commix_host = input(conf.colored("\n nsert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"])) 
-        commix_output = input(conf.colored(f"report path  - [default: reports/pt/{commix_host}]: ","green", attrs=["bold"],))
+        commix_output = input(conf.colored(f"report path  - [default: /var/webvapt/reports/pt/{commix_host}]: ","green", attrs=["bold"],))
         conf.not_valid(pt_scan, commix_host)
-        commix_output = conf.dir_output(commix_output, "reports/pt", commix_host)
+        commix_output = conf.dir_output(commix_output, "/var/webvapt/reports/pt/", commix_host)
         conf.create_dir(commix_output)
         # commix
         #conf.os.system(f"commix -u http://{commix_host} --level 3 --all -v 2 --batch --output-dir={commix_output}")
         # it was not possible to force this path, change according to your reality
-        conf.os.system(f"commix -u http://{commix_host} --level 3 --all -v 2 --batch --output-dir=/mnt/c/Users/root/Desktop/webVAPT/reports/pt/{commix_host}")
+        conf.os.system(f"commix -u http://{commix_host} --level 3 --all -v 2 --batch --output-dir=/var/webvapt/reports/pt/{commix_host}")
         
         
         print(conf.colored("                                                    ","blue", attrs=["reverse"],))         
@@ -107,9 +107,9 @@ def pt_scan():
         print(conf.colored("\n ● ALL : ", "white", attrs=["reverse"]) + conf.colored(" Full Web Pentest                         ", "yellow", attrs=["reverse"]))
         #Alvo    
         full_host = input(conf.colored("\nInsert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"])) 
-        full_output = input(conf.colored(f"report path  - [default: reports/pt/{full_host}: ","green", attrs=["bold"],))
+        full_output = input(conf.colored(f"report path  - [default: /var/webvapt/reports/pt/{full_host}: ","green", attrs=["bold"],))
         conf.not_valid(pt_scan, full_host)
-        full_output = conf.dir_output(full_output, "reports/pt", full_host)
+        full_output = conf.dir_output(full_output, "/var/webvapt/reports/pt/", full_host)
         conf.create_dir(full_output)
         #start time
         startTime = time.time() 
@@ -126,10 +126,10 @@ def pt_scan():
         #full pt tools 
         
         else:
-            conf.os.system(f"python3 modules/msf/msf.py -j 5 -t {full_host}  -f {full_output}")
+            conf.os.system(f"python3 /var/webvapt/modules/msf/msf.py -j 5 -t {full_host}  -f {full_output}")
             conf.os.system(f"sqlmap -u {full_host} --level 3 --risk 3 -a --forms --crawl=5  --batch --tamper=apostrophemask,apostrophenullencode,base64encode,between,chardoubleencode,charencode,charunicodeencode,equaltolike,greatest,ifnull2ifisnull,multiplespaces,percentage,randomcase,space2comment,space2plus,space2randomblank,unionalltounion,unmagicquotes  | tee {full_output}/full_sqlmap.txt ")
             # It was not possible to force this path, change according to your reality
-            conf.os.system(f"commix -u http://{full_host} --level 3 --all -v 2 --batch --output-dir=/mnt/c/Users/root/Desktop/webVAPT/reports/pt/{full_host}")
+            conf.os.system(f"commix -u http://{full_host} --level 3 --all -v 2 --batch --output-dir=/var/webvat/reports/pt/{full_host}")
       
         print("\n")
         #end time

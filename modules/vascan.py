@@ -5,7 +5,7 @@
 import conf.conf as conf
 import time
 import os
-os.path.abspath("reports/va/")
+os.path.abspath("/var/webvapt/reports/va/")
 
 # VA Scan
 def va_scan():
@@ -26,9 +26,9 @@ def va_scan():
         print(conf.colored("                                                    ","blue", attrs=["reverse"],))     
         print(conf.colored("\n ● NMAP: ", "white", attrs=["reverse"]) + conf.colored(" http web enumeration -p 80,443,8080       ", "yellow", attrs=["reverse"]))
         nmap_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nmap_output = input(conf.colored(f"report path - [default: reports/va/{nmap_host}]: ", "green", attrs=["bold"], ))
+        nmap_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nmap_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nmap_host)
-        nmap_output = conf.dir_output(nmap_output, "reports/va", nmap_host)
+        nmap_output = conf.dir_output(nmap_output, "/var/webvapt/reports/va", nmap_host)
         conf.create_dir(nmap_output)       
         #ataque V5
         startTime = time.time()
@@ -55,9 +55,9 @@ def va_scan():
         print(conf.colored("                                                    ","blue", attrs=["reverse"],))     
         print(conf.colored("\n ● NMAP: ", "white", attrs=["reverse"]) + conf.colored(" http common vuln   -p 80,443,8080         ", "yellow", attrs=["reverse"]))
         nmap_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nmap_output = input(conf.colored(f"report path - [default: reports/va/{nmap_host}]: ", "green", attrs=["bold"], ))
+        nmap_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nmap_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nmap_host)
-        nmap_output = conf.dir_output(nmap_output, "reports/va", nmap_host)
+        nmap_output = conf.dir_output(nmap_output, "/var/webvapt/reports/va/", nmap_host)
         conf.create_dir(nmap_output)       
         #ataque V2
         startTime = time.time()
@@ -82,9 +82,9 @@ def va_scan():
         print(conf.colored("                                                    ","blue", attrs=["reverse"],))     
         print(conf.colored("\n ● NMAP: ", "white", attrs=["reverse"]) + conf.colored(" http vulnerabilities   -p all             ", "yellow", attrs=["reverse"]))
         nmap_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nmap_output = input(conf.colored(f"report path - [default: reports/va/{nmap_host}]: ", "green", attrs=["bold"], ))
+        nmap_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nmap_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nmap_host)
-        nmap_output = conf.dir_output(nmap_output, "reports/va", nmap_host)
+        nmap_output = conf.dir_output(nmap_output, "/var/webvapt/reports/va/", nmap_host)
         conf.create_dir(nmap_output)       
         #ataque V3
         startTime = time.time()
@@ -114,13 +114,13 @@ def va_scan():
         print(conf.colored("\n ● SSLTEST :", "white", attrs=["reverse"]) + conf.colored(" Full SSL/TLS and cert Tests            ", "yellow", attrs=["reverse"]))  
         # Alvo
         sslsh_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        sslsh_output = input(conf.colored(f"report path - [default: reports/va/{sslsh_host}]: ", "green", attrs=["bold"], ))
+        sslsh_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{sslsh_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, sslsh_host)
-        sslsh_output = conf.dir_output(sslsh_output, "reports/va", sslsh_host)
+        sslsh_output = conf.dir_output(sslsh_output, "/var/webvapt/reports/va/", sslsh_host)
         conf.create_dir(sslsh_output)       
         #ataque V5
         startTime = time.time()
-        conf.os.system(f"./modules/testssl/testssl.sh --wide --sneaky --colorblind -U -9  --htmlfile {sslsh_output}/testssl.html {sslsh_host}")
+        conf.os.system(f"/var/webvapt/modules/testssl/testssl.sh --wide --sneaky --colorblind -U -9  --htmlfile {sslsh_output}/testssl.html {sslsh_host}")
         print("\n")
         print(conf.colored("\n Tempo usado: ", "white", attrs=["reverse"]) + conf.colored(f" {time.time() - startTime}          Segundos ", "yellow", attrs=["reverse"]))
         
@@ -146,9 +146,9 @@ def va_scan():
         # Alvo
         wapiti_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
         # Report 
-        wapiti_output = input(conf.colored(f"Pasta de Saida do relatório  - [default: reports/va/{wapiti_host}]: ","green", attrs=["bold"],))
+        wapiti_output = input(conf.colored(f"Pasta de Saida do relatório  - [default: /var/webvapt/reports/va/{wapiti_host}]: ","green", attrs=["bold"],))
         conf.not_valid(va_scan, wapiti_host)
-        wapiti_output = conf.dir_output(wapiti_output, "reports/va", wapiti_host)
+        wapiti_output = conf.dir_output(wapiti_output, "/var/webvapt/reports/va/", wapiti_host)
         conf.create_dir(wapiti_output)
                 
         # parametrização da ferramenta
@@ -174,9 +174,9 @@ def va_scan():
         # alvo
         wapiti_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
         # pasta do relatorio
-        wapiti_output = input(conf.colored(f"report path - [default: reports/va/{wapiti_host}]: ","green", attrs=["bold"],))
+        wapiti_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{wapiti_host}]: ","green", attrs=["bold"],))
         conf.not_valid(va_scan, wapiti_host)
-        wapiti_output = conf.dir_output(wapiti_output, "reports/va", wapiti_host)
+        wapiti_output = conf.dir_output(wapiti_output, "/var/webvapt/reports/va/", wapiti_host)
         conf.create_dir(wapiti_output)
         # V2 ataque - parametrização da ferramenta
         startTime = time.time()
@@ -201,9 +201,9 @@ def va_scan():
         # Alvo
         wapiti_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
         # pasta do relatorio
-        wapiti_output = input(conf.colored(f"report path - [default: reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
+        wapiti_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
         conf.not_valid(va_scan, wapiti_host)
-        wapiti_output = conf.dir_output(wapiti_output, "reports/va", wapiti_host)
+        wapiti_output = conf.dir_output(wapiti_output, "/var/webvapt/reports/va/", wapiti_host)
         conf.create_dir(wapiti_output)
         # V3 ataque - parametrização da ferramenta
         startTime = time.time()
@@ -227,9 +227,9 @@ def va_scan():
         # Alvo
         wapiti_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
         # pasta do relatorio
-        wapiti_output = input(conf.colored(f"report path - [default: reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
+        wapiti_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
         conf.not_valid(va_scan, wapiti_host)
-        wapiti_output = conf.dir_output(wapiti_output, "reports/va", wapiti_host)
+        wapiti_output = conf.dir_output(wapiti_output, "/var/webvapt/reports/va/", wapiti_host)
         conf.create_dir(wapiti_output)
         # V4 ataque - parametrização da ferramenta
         startTime = time.time()
@@ -254,9 +254,9 @@ def va_scan():
         # Alvo
         wapiti_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
         # Report 
-        wapiti_output = input(conf.colored(f"report path - [default: reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
+        wapiti_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
         conf.not_valid(va_scan, wapiti_host)
-        wapiti_output = conf.dir_output(wapiti_output, "reports/va", wapiti_host)
+        wapiti_output = conf.dir_output(wapiti_output, "/var/webvapt/reports/va/", wapiti_host)
         conf.create_dir(wapiti_output)
         # V3 ataque - parametrização da ferramenta
         startTime = time.time()
@@ -281,9 +281,9 @@ def va_scan():
         # Alvo
         wapiti_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
         # pasta do relatorio
-        wapiti_output = input(conf.colored(f"report path - [default: reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
+        wapiti_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
         conf.not_valid(va_scan, wapiti_host)
-        wapiti_output = conf.dir_output(wapiti_output, "reports/va", wapiti_host)
+        wapiti_output = conf.dir_output(wapiti_output, "/var/webvapt/reports/va/", wapiti_host)
         conf.create_dir(wapiti_output)
         startTime = time.time()
 
@@ -308,9 +308,9 @@ def va_scan():
         # Alvo
         wapiti_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
         # pasta do relatorio
-        wapiti_output = input(conf.colored(f"report path - [default: reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
+        wapiti_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
         conf.not_valid(va_scan, wapiti_host)
-        wapiti_output = conf.dir_output(wapiti_output, "reports/va", wapiti_host)
+        wapiti_output = conf.dir_output(wapiti_output, "/var/webvapt/reports/va/", wapiti_host)
         conf.create_dir(wapiti_output)
         startTime = time.time()
         # V7 ataque - parametrização da ferramenta
@@ -334,9 +334,9 @@ def va_scan():
         # Alvo
         wapiti_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
         # Report 
-        wapiti_output = input(conf.colored(f"report path - [default: reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
+        wapiti_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
         conf.not_valid(va_scan, wapiti_host)
-        wapiti_output = conf.dir_output(wapiti_output, "reports/va", wapiti_host)
+        wapiti_output = conf.dir_output(wapiti_output, "/var/webvapt/reports/va/", wapiti_host)
         conf.create_dir(wapiti_output)
         startTime = time.time()
         # V8 ataque - parametrização da ferramenta
@@ -359,9 +359,9 @@ def va_scan():
         # Alvo
         wapiti_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
         # Report 
-        wapiti_output = input(conf.colored(f"report path - [default: reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
+        wapiti_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{wapiti_host}]: ", "green", attrs=["bold"],))
         conf.not_valid(va_scan, wapiti_host)
-        wapiti_output = conf.dir_output(wapiti_output, "reports/va", wapiti_host)
+        wapiti_output = conf.dir_output(wapiti_output, "/var/webvapt/reports/va/", wapiti_host)
         conf.create_dir(wapiti_output)
         startTime = time.time()
         # parametrização da ferramenta
@@ -387,9 +387,9 @@ def va_scan():
         print(conf.colored("\n ● NIKTO :", "white", attrs=["reverse"]) + conf.colored(" V1-XSS-A7-OWASP-2017                     ", "yellow", attrs=["reverse"])) 
         # Alvo
         nikto_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nikto_output = input(conf.colored(f"report path - [default: reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
+        nikto_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nikto_host)
-        nikto_output = conf.dir_output(nikto_output, "reports/va", nikto_host)
+        nikto_output = conf.dir_output(nikto_output, "/var/webvapt/reports/va/", nikto_host)
         conf.create_dir(nikto_output)
         startTime = time.time()
         #V1 - xss
@@ -413,9 +413,9 @@ def va_scan():
         print(conf.colored("\n ● NIKTO :", "white", attrs=["reverse"]) + conf.colored(" V2-INJECTION-A1:2017                     ", "yellow", attrs=["reverse"]))
         # alvo
         nikto_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nikto_output = input(conf.colored(f"report path - [default: reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
+        nikto_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nikto_host)
-        nikto_output = conf.dir_output(nikto_output, "reports/va", nikto_host)
+        nikto_output = conf.dir_output(nikto_output, "/var/webvapt/reports/va/", nikto_host)
         conf.create_dir(nikto_output)
         startTime = time.time()
         #ataque V2 
@@ -439,9 +439,9 @@ def va_scan():
         print(conf.colored("\n ● NIKTO :", "white", attrs=["reverse"]) + conf.colored(" V3-Broken Authentication-A2:2017         ", "yellow", attrs=["reverse"]))     
         # Alvo
         nikto_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nikto_output = input(conf.colored(f"report path - [default: reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
+        nikto_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nikto_host)
-        nikto_output = conf.dir_output(nikto_output, "reports/va", nikto_host)
+        nikto_output = conf.dir_output(nikto_output, "/var/webvapt/reports/va/", nikto_host)
         conf.create_dir(nikto_output)    
         startTime = time.time()
         #V3 
@@ -464,9 +464,9 @@ def va_scan():
         print(conf.colored("\n ● NIKTO :", "white", attrs=["reverse"]) + conf.colored(" V4-Security Misconfiguration-A6:2017     ", "yellow", attrs=["reverse"]))     
         # Alvo
         nikto_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nikto_output = input(conf.colored(f"report path - [default: reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
+        nikto_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nikto_host)
-        nikto_output = conf.dir_output(nikto_output, "reports/va", nikto_host)
+        nikto_output = conf.dir_output(nikto_output, "/var/webvapt/reports/va/", nikto_host)
         conf.create_dir(nikto_output)
         startTime = time.time()
         #V4
@@ -490,9 +490,9 @@ def va_scan():
         print(conf.colored("\n ● NIKTO :", "white", attrs=["reverse"]) + conf.colored(" V5-Sensitive Data Exposure - A3:2017     ", "yellow", attrs=["reverse"]))     
         # Alvo  
         nikto_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nikto_output = input(conf.colored(f"report path - [default: reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
+        nikto_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nikto_host)
-        nikto_output = conf.dir_output(nikto_output, "reports/va", nikto_host)
+        nikto_output = conf.dir_output(nikto_output, "/var/webvapt/reports/va/", nikto_host)
         conf.create_dir(nikto_output)       
         startTime = time.time()
         #ataque V5
@@ -515,9 +515,9 @@ def va_scan():
         print(conf.colored("\n ● NIKTO :", "white", attrs=["reverse"]) + conf.colored(" V6- Malicious File Inclusion             ", "yellow", attrs=["reverse"]))  
         # Alvo
         nikto_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nikto_output = input(conf.colored(f"report path - [default: reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
+        nikto_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nikto_host)
-        nikto_output = conf.dir_output(nikto_output, "reports/va", nikto_host)
+        nikto_output = conf.dir_output(nikto_output, "/var/webvapt/reports/va/", nikto_host)
         conf.create_dir(nikto_output)       
         startTime = time.time()
         #ataque V6
@@ -542,9 +542,9 @@ def va_scan():
         print(conf.colored("\n ● NIKTO :", "white", attrs=["reverse"]) + conf.colored(" V7-Cross Site Request Forgery            ", "yellow", attrs=["reverse"]))  
         # Alvo
         nikto_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nikto_output = input(conf.colored(f"report path - [default: reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
+        nikto_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nikto_host)
-        nikto_output = conf.dir_output(nikto_output, "reports/va", nikto_host)
+        nikto_output = conf.dir_output(nikto_output, "/var/webvapt/reports/va/", nikto_host)
         conf.create_dir(nikto_output)       
         startTime = time.time()
         #ataque V7
@@ -568,9 +568,9 @@ def va_scan():
         print(conf.colored("\n ● NIKTO :", "white", attrs=["reverse"]) + conf.colored(" V8 - Insecure Communications - A3:2017   ", "yellow", attrs=["reverse"]))  
         # Alvo 
         nikto_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nikto_output = input(conf.colored(f"report path - [default: reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
+        nikto_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nikto_host)
-        nikto_output = conf.dir_output(nikto_output, "reports/va", nikto_host)
+        nikto_output = conf.dir_output(nikto_output, "/var/webvapt/reports/va/", nikto_host)
         conf.create_dir(nikto_output)       
         startTime = time.time()
         #ataque V8
@@ -594,9 +594,9 @@ def va_scan():
         print(conf.colored("\n ● NIKTO :", "white", attrs=["reverse"]) + conf.colored(" All Vulnerabilities                      ", "yellow", attrs=["reverse"]))  
         #Alvo
         nikto_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        nikto_output = input(conf.colored(f"report path - [default: reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
+        nikto_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{nikto_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, nikto_host)
-        nikto_output = conf.dir_output(nikto_output, "reports/va", nikto_host)
+        nikto_output = conf.dir_output(nikto_output, "/var/webvapt/reports/va/", nikto_host)
         conf.create_dir(nikto_output)       
         startTime = time.time()
         #ataque all
@@ -625,9 +625,9 @@ def va_scan():
         print(conf.colored("\n ● UNISCAN :", "white", attrs=["reverse"]) + conf.colored(" Brute files and Directories            ", "yellow", attrs=["reverse"]))  
         # Alvo 
         uniscan_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        uniscan_output = input(conf.colored(f"report path - [default: reports/va/{uniscan_host}]: ", "green", attrs=["bold"], ))
+        uniscan_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{uniscan_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, uniscan_host)
-        uniscan_output = conf.dir_output(uniscan_output, "reports/va", uniscan_host)
+        uniscan_output = conf.dir_output(uniscan_output, "/var/webvapt/reports/va/", uniscan_host)
         conf.create_dir(uniscan_output)       
         startTime = time.time()
         #ataque 1
@@ -653,9 +653,9 @@ def va_scan():
         print(conf.colored("\n ● UNISCAN :", "white", attrs=["reverse"]) + conf.colored(" XSS, SQLi, BSQLi & Other Checks.       ", "yellow", attrs=["reverse"]))  
         # Alvo 
         uniscan_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        uniscan_output = input(conf.colored(f"report path - [default: reports/va/{uniscan_host}]: ", "green", attrs=["bold"], ))
+        uniscan_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{uniscan_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, uniscan_host)
-        uniscan_output = conf.dir_output(uniscan_output, "reports/va", uniscan_host)
+        uniscan_output = conf.dir_output(uniscan_output, "/var/webvapt/reports/va/", uniscan_host)
         conf.create_dir(uniscan_output)       
         startTime = time.time()
         #ataque 2
@@ -679,9 +679,9 @@ def va_scan():
         print(conf.colored("\n ● UNISCAN :", "white", attrs=["reverse"]) + conf.colored(" LFI, RFI and RCE Checks                ", "yellow", attrs=["reverse"]))  
         # Alvo 
         uniscan_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        uniscan_output = input(conf.colored(f"report path - [default: reports/va/{uniscan_host}]: ", "green", attrs=["bold"], ))
+        uniscan_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{uniscan_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, uniscan_host)
-        uniscan_output = conf.dir_output(uniscan_output, "reports/va", uniscan_host)
+        uniscan_output = conf.dir_output(uniscan_output, "/var/webvapt/reports/va/", uniscan_host)
         conf.create_dir(uniscan_output)       
         startTime = time.time()
         #ataque 3
@@ -705,9 +705,9 @@ def va_scan():
         print(conf.colored("\n ● UNISCAN :", "white", attrs=["reverse"]) + conf.colored(" Full scan                              ", "yellow", attrs=["reverse"]))  
         # Alvo  
         uniscan_host = input(conf.colored("\n Insert Target (127.0.0.1/www.url.com): ", "green", attrs=["bold"]))
-        uniscan_output = input(conf.colored(f"report path - [default: reports/va/{uniscan_host}]: ", "green", attrs=["bold"], ))
+        uniscan_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{uniscan_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, uniscan_host)
-        uniscan_output = conf.dir_output(uniscan_output, "reports/va", uniscan_host)
+        uniscan_output = conf.dir_output(uniscan_output, "/var/webvapt/reports/va/", uniscan_host)
         conf.create_dir(uniscan_output)       
         startTime = time.time()
         #ataque all
@@ -732,9 +732,9 @@ def va_scan():
         print(conf.colored("\n ● VA   :", "white", attrs=["reverse"]) + conf.colored(" Full VA Web Scanning - All Tools          ", "yellow", attrs=["reverse"]))  
         # Alvo
         full_host = input(conf.colored("\n Insert Target (172.0.0.1/www.url.com) ", "green", attrs=["bold"]))
-        full_output = input(conf.colored(f"report path - [default: reports/va/{full_host}]: ", "green", attrs=["bold"], ))
+        full_output = input(conf.colored(f"report path - [default: /var/webvapt/reports/va/{full_host}]: ", "green", attrs=["bold"], ))
         conf.not_valid(va_scan, full_host)
-        full_output = conf.dir_output(full_output, "reports/va", full_host)    
+        full_output = conf.dir_output(full_output, "/var/webvapt/reports/va/", full_host)    
         full_ip = conf.socket.gethostbyname(full_host)
         conf.create_dir(full_output)
         #start time
@@ -753,7 +753,7 @@ def va_scan():
            
         else:
            
-            conf.os.system(f"dirsearch -u {full_host} --auth-type=digest --auth=test:test --format plain -o reports/va/{full_host}/dirsearch.txt")
+            conf.os.system(f"dirsearch -u {full_host} --auth-type=digest --auth=test:test --format plain -o /var/webvapt/reports/va/{full_host}/dirsearch.txt")
             conf.os.system(f"nmap -sV --script vuln {full_host} -vvv -oN  {full_output}/nmap_full_vulnerabilities.txt")
             conf.os.system(f"nmap -sV -p 80,443,8080 --script http-cors,http-headers,http-csrf,http-aspnet-debug,http-cross-domain-policy,http-phpself-xss,http-php-version,http-webdav-scan,http-waf-detect,http-xssed {full_host} -vv -oN  {full_output}/nmap_full_http-common.txt" )
             conf.os.system(f"wapiti  --flush-attack --auth-method basic -a test%test -u http://{full_host} -m backup,brute_login_form,cookieflags,crlf,csp,csrf,drupal_enum,exec,file,htaccess,htp,http_headers,log4shell,methods,permanentxss,redirect,shellshock,sql,ssl,ssrf,takeover,timesql,wapp,wp_enum,xss,xxe,nikto  -v 2 -dr -f html -o {full_output}/wapiti_full_http")

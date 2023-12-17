@@ -13,20 +13,21 @@
 
 **step 1:** Download webvapt. 
 
-    git clone https://github.com/paciente23256/webvapt.git
+    sudo git clone https://github.com/paciente23256/webvapt.git
     sudo mkdir /var/webvapt
-    mv -r webvapt/* /var/webvapt
-    git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
+    sudo mv webvapt/ /var/
+    sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
     sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
-    git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
+    sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
         
-**step 2:** install python libraries.
+**step 2:** Install python pip and libraries.
 
+    sudo apt-get python3-pip -y
     sudo pip3 install -r /var/webvapt/conf/requirements.txt
 
 **step 3:** Install Tools
 
-    sudo apt update && apt install wapiti uniscan nmap nikto commix git dirsearch python3-pip -y
+    sudo apt-get update && apt-get install wapiti uniscan nmap nikto commix git dirsearch -Y
 
 **step 4** Create a symbolic-link
     

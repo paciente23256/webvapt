@@ -3,16 +3,15 @@
 DEPENDENCIES="wapiti uniscan nmap nikto commix git dirsearch python3-pip"
 
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
-    sudo rm -rf /var/webvapt
+        sudo rm -rf /var/webvapt
 	sudo rm -rf /usr/local/bin/webvapt/
 	sudo rm -rf /usr/share/nmap/scripts/vulscan
-    sudo mkdir /var/webvapt
+        sudo apt-get install $DEPENDENCIES -y
 	sudo git  clone https://github.com/paciente23256/webvapt.git /var/webvapt
-    sudo apt-get install $DEPENDENCIES -y
-    sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
+        sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
 	sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
 	sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
-    sudo pip3 install -r /var/webvapt/conf/requirements.txt 
+        sudo pip3 install -r /var/webvapt/conf/requirements.txt 
 	sudo ln -s /var/webvapt/webvapt.py /usr/local/bin/webvapt 
 	sudo chmod +x /usr/local/bin/webvapt
 	echo ""

@@ -21,7 +21,7 @@ from modules.exit import exit
 
 
 ans = True
-version = "1.0"
+version = "1.1"
 home = os.path.expanduser("~")
 
 

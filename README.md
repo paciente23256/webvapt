@@ -9,8 +9,14 @@
 </a>
 <p></p>
 
-### WebVAPT it´s a framework that automates and parameterizes well-known VAPT tools by modeling the attack for, Web applications, through the mapping of eight vulnerabilities obtained from NIST and OWASP.
+### WebVAPT it´s a framework that automates and parameterizes well-known VAPT tools by modeling the attack, for Web applications, through the mapping of eight vulnerabilities obtained from NIST and OWASP.
 
+
+
+<img src="https://raw.githubusercontent.com/paciente23256/webvapt/main/images/map8_owasp2021.png" 
+     width="50%" 
+     height="50%" />
+     
 ## Manual Setup in Kali 
 
 **step 1:** Download webvapt. 
@@ -31,12 +37,12 @@
 
     sudo apt-get update && apt-get install wapiti uniscan nmap nikto commix git dirsearch -Y
 
-**step 4** Create a symbolic-link
+**step 4:** Create a symbolic-link
     
     sudo ln -s /var/webvat/webvapt.py /usr/local/bin/webvapt
     sudo chmod +x /usr/local/bin/webvapt
     
-**step 5** Run WebVAPT
+**step 5:** Run WebVAPT
     just type:
     
     webvapt

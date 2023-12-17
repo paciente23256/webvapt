@@ -17,7 +17,8 @@
     sudo mkdir /var/webvapt
     mv -r webvapt/* /var/webvapt
     git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
-	git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
+    sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
+    git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
         
 **step 2:** install python libraries.
 

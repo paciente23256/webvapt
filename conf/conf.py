@@ -88,9 +88,9 @@ def ver_check():
             github_ver = github_ver.strip()
 
             if version == github_ver:
-                print(colored("  WebVAPT version is up to date.\n", "yellow", attrs=["reverse"],))
+                print(colored("  WebVAPT version is update.\n", "yellow", attrs=["reverse"],))
             else:
-                print(colored(f"  The WebVAPT version is not up to date, there is a new version: {format(github_ver)} \n", "yellow", attrs=["reverse"],))
+                print(colored(f"  The WebVAPT version is not update, there is a new version: {format(github_ver)} \n", "yellow", attrs=["reverse"],))
         else:
             print("[ License status: {} ".format(ver_sc) + "]" + "\n")
     except Exception as e:

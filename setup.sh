@@ -4,7 +4,7 @@ DEPENDENCIES="wapiti uniscan nmap nikto commix git dirsearch python3 python3-pip
 
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
         sudo rm -rf /var/webvapt
-	sudo rm -rf /usr/local/bin/webvapt/
+	sudo rm -rf /usr/local/bin/webvapt
 	sudo rm -rf /usr/share/nmap/scripts/vulscan
         sudo apt-get install $DEPENDENCIES -y
 	sudo git  clone https://github.com/paciente23256/webvapt.git /var/webvapt
@@ -16,7 +16,8 @@ if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
 	sudo chmod +x /usr/local/bin/webvapt
 	echo ""
 	echo "+-----------------------+"
-	echo "  setup OK - Enjoy! ;P"
+	echo "     [ Setup OK ]"
+ 	echo "+-----------------------+"
 	
 elif [ "$(grep -Ei 'redhat|centos' /etc/*release)" ]; then 
     os_version=$(cut -d ':' -f5 < /etc/system-release-cpe)

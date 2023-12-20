@@ -16,9 +16,7 @@
 
 **step 1:** Download and Setup webvapt. 
 
-    sudo git clone https://github.com/paciente23256/webvapt.git
-    sudo mkdir /var/webvapt
-    sudo mv webvapt/ /var/
+    sudo git clone https://github.com/paciente23256/webvapt.git /var/webvapt
     sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
     sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
     sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
@@ -40,7 +38,7 @@
 **step 5:** Run WebVAPT
     just type:
     
-    webvapt
+    sudo webvapt
     
 
 ## Using setup.sh
@@ -50,8 +48,9 @@
      sudo wget -O - https://raw.githubusercontent.com/paciente23256/webvapt/main/setup.sh | bash
      
 **step 2:** Run WebVAPT
+     just type
 
-    webvapt
+    sudo webvapt
 
 
 ## WebVAPT Screenshots

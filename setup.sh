@@ -6,14 +6,13 @@ if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
         sudo rm -rf /var/webvapt
 	sudo rm -rf /usr/local/bin/webvapt
 	sudo rm -rf /usr/share/nmap/scripts/vulscan
-        sudo apt-get install $DEPENDENCIES -y
-	sudo apt remove wapiti -y
+    sudo apt-get install $DEPENDENCIES -y
 	sudo pip3 install wapiti3
 	sudo git  clone https://github.com/paciente23256/webvapt.git /var/webvapt
-        sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
+    sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
 	sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
 	sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
-        sudo pip3 install -r /var/webvapt/conf/requirements.txt 
+    sudo apt install python3-art python3-termcolor pythons-glob2 pythons-requests
 	sudo ln -s /var/webvapt/webvapt.py /usr/local/bin/webvapt 
 	sudo chmod +x /usr/local/bin/webvapt
 	echo ""
@@ -33,7 +32,7 @@ elif [ "$(grep -Ei 'redhat|centos' /etc/*release)" ]; then
         sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
 	sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
 	sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
-        sudo pip3 install -r /var/webvapt/conf/requirements.txt 
+        sudo dnf install python3-art python3-termcolor pythons-glob2 pythons-requests
 	sudo ln -s /var/webvapt/webvapt.py /usr/local/bin/webvapt 
 	sudo chmod +x /usr/local/bin/webvapt
     elif [ "$os_version" == 7 ]; then
@@ -48,7 +47,7 @@ elif [ "$(grep -Ei 'redhat|centos' /etc/*release)" ]; then
         sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
 	sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
 	sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
-        sudo pip3 install -r /var/webvapt/conf/requirements.txt 
+        sudo yum install -y python3-art python3-termcolor pythons-glob2 pythons-requests 
 	sudo ln -s /var/webvapt/webvapt.py /usr/local/bin/webvapt 
 	sudo chmod +x /usr/local/bin/webvapt
     fi  

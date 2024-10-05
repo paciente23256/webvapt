@@ -23,12 +23,12 @@
         
 **step 2:** Install tools
 
-    sudo apt-get update && apt-get install wapiti uniscan nmap nikto commix git dirsearch python3 python3-pip -y
+    sudo apt-get update && apt-get install wapiti uniscan nmap nikto commix git dirsearch python3 python3-pipx -y
     
    
 **step 3:**  Install python libraries.
 
-    sudo pip3 install -r /var/webvapt/conf/requirements.txt
+    sudo apt install python3-art python3-termcolor pythons-glob2 pythons-requests
 
 **step 4:** Create a symbolic-link
     

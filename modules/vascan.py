@@ -366,7 +366,7 @@ def va_scan():
         startTime = time.time()
         # parametrização da ferramenta
 
-        conf.os.system(f"wapiti  --flush-attack  --auth-method basic -a test%test -u https://{wapiti_host} -m backup,brute_login_form,cookieflags,crlf,csp,csrf,drupal_enum,exec,file,htaccess,htp,http_headers,log4shell,methods,permanentxss,redirect,shellshock,sql,ssl,ssrf,takeover,timesql,wapp,wp_enum,xss,xxe  -v 2 -dr -f html -o {wapiti_output}/wapiti_all")
+        conf.os.system(f"wapiti  --flush-attack  --auth-method basic -a test%test -u https://{wapiti_host} -m backup,brute_login_form,cookieflags,crlf,csp,csrf,drupal_enum,exec,file,htaccess,htp,http_headers,log4shell,methods,permanentxss,redirect,shellshock,sql,ssl,ssrf,takeover,timesql,wapp,wp_enum,xss,xxe  -v 2  -f html -o {wapiti_output}/wapiti_all")
         print("\n")
         print(conf.colored("\n Tempo usado: ", "white", attrs=["reverse"]) + conf.colored(f" {time.time() - startTime}          Segundos ", "yellow", attrs=["reverse"]))
 
@@ -756,7 +756,7 @@ def va_scan():
             conf.os.system(f"dirsearch -u {full_host} --auth-type=digest --auth=test:test --format plain -o /var/webvapt/reports/va/{full_host}/dirsearch.txt")
             conf.os.system(f"nmap -sV --script vuln {full_host} -vvv -oN  {full_output}/nmap_full_vulnerabilities.txt")
             conf.os.system(f"nmap -sV -p 80,443,8080 --script http-cors,http-headers,http-csrf,http-aspnet-debug,http-cross-domain-policy,http-phpself-xss,http-php-version,http-webdav-scan,http-waf-detect,http-xssed {full_host} -vv -oN  {full_output}/nmap_full_http-common.txt" )
-            conf.os.system(f"wapiti  --flush-attack --auth-method basic -a test%test -u http://{full_host} -m backup,brute_login_form,cookieflags,crlf,csp,csrf,drupal_enum,exec,file,htaccess,htp,http_headers,log4shell,methods,permanentxss,redirect,shellshock,sql,ssl,ssrf,takeover,timesql,wapp,wp_enum,xss,xxe,nikto  -v 2 -dr -f html -o {full_output}/wapiti_full_http")
+            conf.os.system(f"wapiti  --flush-attack --auth-method basic -a test%test -u http://{full_host} -m backup,brute_login_form,cookieflags,crlf,csp,csrf,drupal_enum,exec,file,htaccess,htp,http_headers,log4shell,methods,permanentxss,redirect,shellshock,sql,ssl,ssrf,takeover,timesql,wapp,wp_enum,xss,xxe,nikto  -v 2  -f html -o {full_output}/wapiti_full_http")
             #nikto its present wapiti module
             conf.os.system(f"./modules/testssl/testssl.sh --wide --sneaky --colorblind -U -9 --htmlfile {full_output}/ssltest_full.html {full_host}")
             conf.os.system(f"uniscan -bqwedsjg -u {full_host} | tee {full_output}/uniscan_full.txt")

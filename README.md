@@ -28,7 +28,7 @@
    
 **step 3:**  Install python libraries.
 
-    sudo apt install python3-art python3-termcolor pythons-glob2 pythons-requests
+    sudo apt install python3-art python3-termcolor python3-glob2 python3-requests
 
 **step 4:** Create a symbolic-link
     

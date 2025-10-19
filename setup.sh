@@ -12,7 +12,7 @@ if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
     sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
 	sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
 	sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
-    sudo apt install python3-art python3-termcolor python3-glob2 python3-requests
+    sudo apt install python3-art python3-termcolor glob2 python3-requests
 	sudo ln -s /var/webvapt/webvapt.py /usr/local/bin/webvapt 
 	sudo chmod +x /usr/local/bin/webvapt
 	echo ""
@@ -32,7 +32,7 @@ elif [ "$(grep -Ei 'redhat|centos' /etc/*release)" ]; then
         sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
 	sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
 	sudo chmod +x /var/webvapt/modules/testssl/testssl.sh
-        sudo dnf install python3-art python3-termcolor pythons-glob2 pythons-requests -
+        sudo dnf install python3-art python3-termcolor glob2 pythons-requests -y
 	sudo ln -s /var/webvapt/webvapt.py /usr/local/bin/webvapt 
 	sudo chmod +x /usr/local/bin/webvapt
     elif [ "$os_version" == 7 ]; then

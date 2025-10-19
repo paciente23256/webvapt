@@ -366,7 +366,7 @@ def va_scan():
         startTime = time.time()
         # parametrização da ferramenta
 
-        conf.os.system(f"wapiti  --flush-attack  --auth-type basic -a test%test -u https://{wapiti_host} -m backup,brute_login_form,cookieflags,crlf,csp,csrf,drupal_enum,exec,file,htaccess,htp,http_headers,log4shell,methods,permanentxss,redirect,shellshock,sql,ssl,ssrf,takeover,timesql,wapp,wp_enum,xss,xxe  -v 2  -f html -o {wapiti_output}/wapiti_all")
+        conf.os.system(f"wapiti  --flush-attack  --auth-type basic -a test%test -u https://{wapiti_host} -m buster,backup,brute_login_form,cookieflags,crlf,csp,csr,exec,xxe,xss,file,htaccess,htp,http_headers,log4shell,methods,permanentxss,redirect,shellshock,sql,ssl,ssrf,takeover,timesql,wapp --verify-ssl 1  -v 2  -f html -o {wapiti_output}/wapiti_all")
         print("\n")
         print(conf.colored("\n Tempo usado: ", "white", attrs=["reverse"]) + conf.colored(f" {time.time() - startTime}          Segundos ", "yellow", attrs=["reverse"]))
 

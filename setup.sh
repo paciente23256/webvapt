@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-DEPENDENCIES="uniscan nmap nikto commix git dirsearch python3 python3-pip metasploit-framework wapiti python3-art python3-termcolor python3-glob2 python3-requests adwaita-icon-theme-legacy  colord  cups-common  gvfs  jackd2  liblcms2-utils  opus-tools  pulseaudio  librsvg2-bin  xdg-utils  speex"
+DEPENDENCIES="uniscan nmap nikto commix git dirsearch python3 python3-pip metasploit-framework wapiti"
 
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
         sudo rm -rf /var/webvapt
 	sudo rm -rf /usr/local/bin/webvapt
 	sudo rm -rf /usr/share/nmap/scripts/vulscan
-    sudo apt-get install $DEPENDENCIES -y
+    sudo apt install $DEPENDENCIES -y
+	sudo apt update -y && apt upgrade -y && apt install python3-art python3-termcolor python3-glob2 python3-requests
 	sudo git  clone https://github.com/paciente23256/webvapt.git /var/webvapt
     sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
 	sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan

@@ -54,7 +54,7 @@ def vapt_scan():
             conf.os.system(f"dirsearch -u {vapt_host} --format plain -o  /var/webvapt/reports/vapt/{vapt_host}/dirsearch.txt")
             conf.os.system(f"nmap -sV --script vuln {vapt_host} -vvv -oN  {vapt_output}/nmap_vulnerabilities.txt")
             conf.os.system(f"/var/webvapt/modules/testssl/testssl.sh --wide --sneaky --colorblind -U -9 --htmlfile {vapt_output}/testssl.html {vapt_host}")
-            conf.os.system(f"wapiti --flush-attack --flush-session --auth-type basic -a test%test -u http://{vapt_host} -m backup,brute_login_form,cookieflags,crlf,csp,csrf,drupal_enum,exec,file,htaccess,htp,http_headers,log4shell,methods,permanentxss,redirect,shellshock,sql,ssl,ssrf,takeover,timesql,wapp,wp_enum,xss,xxe,nikto  -v 2 -dr -f html -o {vapt_output}/wapiti")
+            conf.os.system(f"wapiti --flush-attack --flush-session --auth-type basic -a test%test -u http://{vapt_host} -m backup,brute_login_form,cookieflags,crlf,csp,csrf,exec,file,htaccess,http_headers,log4shell,methods,permanentxss,redirect,shellshock,sql,ssrf,timesql,wapp,wp_enum,xss,xxe,nikto  -v 2 -dr -f html -o {vapt_output}/wapiti")
             conf.os.system(f"uniscan -qwedsgj -u {vapt_host} | tee {vapt_output}/uniscan_full.txt")
             # nikto is present on wapiti module
             #conf.os.system(f"nikto -T x6 -evasion 7B -usecookies -mutate-options -followredirects -no404 +h {vapt_host} -Display v -Format html -o {vapt_output}/nikto_full.html")

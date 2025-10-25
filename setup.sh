@@ -5,6 +5,8 @@ DEPENDENCIES="uniscan nmap nikto commix git dirsearch python3 python3-pip metasp
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
     sudo apt update -y && apt upgrade -y && apt full-upgrade && apt autoremove -y
 	sudo rm -rf /var/webvapt
+	sudo rm -rf /root/.wapiti
+	sudo rm -rf /root/.wapiti.msf4
 	sudo rm -rf /usr/local/bin/webvapt
 	sudo rm -rf /usr/share/nmap/scripts/vulscan
     sudo apt install $DEPENDENCIES -y

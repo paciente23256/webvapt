@@ -7,7 +7,8 @@ if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
 	sudo rm -rf /usr/local/bin/webvapt
 	sudo rm -rf /usr/share/nmap/scripts/vulscan
     sudo apt install $DEPENDENCIES -y
-	sudo apt update -y && apt upgrade -y && apt install python3-art python3-termcolor python3-glob2 python3-requests
+	sudo apt update -y && apt upgrade -y 
+	sudo apt install python3-art python3-termcolor python3-glob2 python3-requests -y
 	sudo git  clone https://github.com/paciente23256/webvapt.git /var/webvapt
     sudo git clone https://github.com/drwetter/testssl.sh.git /var/webvapt/modules/testssl
 	sudo git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan

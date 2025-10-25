@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEPENDENCIES="uniscan nmap nikto commix git dirsearch python3 python3-pip metasploit-framework wapiti python3-art python3-termcolor python3-glob2 python3-requests"
+DEPENDENCIES="uniscan nmap nikto commix git dirsearch python3 python3-pip metasploit-framework wapiti python3-art python3-termcolor python3-glob2 python3-requests adwaita-icon-theme-legacy  colord  cups-common  gvfs  jackd2  liblcms2-utils  opus-tools  pulseaudio  librsvg2-bin  xdg-utils  speex"
 
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
         sudo rm -rf /var/webvapt

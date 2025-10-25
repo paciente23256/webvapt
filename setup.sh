@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEPENDENCIES="uniscan nmap nikto commix git dirsearch python3 python3-pip metasploit-framework wapiti"
+DEPENDENCIES="uniscan nmap nikto commix git dirsearch python3 python3-pip metasploit-framework wapiti sqlmap"
 
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
     sudo apt update -y && apt upgrade -y && apt full-upgrade && apt autoremove -y

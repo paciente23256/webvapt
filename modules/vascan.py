@@ -367,7 +367,7 @@ def va_scan():
         # parametrização da ferramenta
 
         conf.os.system(f"wapiti  --update")
-        conf.os.system(f"wapiti  --flush-attack  -u https://{wapiti_host}  -v 2  -f html -o {wapiti_output}/wapiti_all")
+        conf.os.system(f"wapiti  --flush-attack  -u http://{wapiti_host}  -v 2  -f html -o {wapiti_output}/wapiti_all")
         print("\n")
         print(conf.colored("\n Tempo usado: ", "white", attrs=["reverse"]) + conf.colored(f" {time.time() - startTime}          Segundos ", "yellow", attrs=["reverse"]))
 

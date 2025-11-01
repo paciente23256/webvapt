@@ -233,7 +233,7 @@ def va_scan():
         conf.create_dir(wapiti_output)
         # V4 ataque - parametrização da ferramenta
         startTime = time.time()
-        conf.os.system(f"wapiti --flush-attack -u http://{wapiti_host} -m wapp,methods,http_headers,htaccess,backup,brute_login_form,csrf,csp,ssrf -v 2 -f txt -o {wapiti_output}/wapiti_v4.txt")
+        conf.os.system(f"wapiti --flush-attack -u http://{wapiti_host} -m methods,http_headers,htaccess,backup,brute_login_form,csrf,csp,ssrf -v 2 -f txt -o {wapiti_output}/wapiti_v4.txt")
         print("\n")
         print(conf.colored("\n Tempo usado: ", "white", attrs=["reverse"]) + conf.colored(f" {time.time() - startTime}          Segundos ", "yellow", attrs=["reverse"]))
                 
@@ -366,7 +366,8 @@ def va_scan():
         startTime = time.time()
         # parametrização da ferramenta
 
-        conf.os.system(f"wapiti  --flush-attack  -u https://{wapiti_host} -m buster,backup,cookieflags,crlf,csp,exec,xxe,xss,file,htaccess,http_headers,methods,permanentxss,redirect,shellshock,ssrf,wapp,brute_login_form  --verify-ssl 1 --auth-type basic -a test%test  -v 2  -f html -o {wapiti_output}/wapiti_all")
+        conf.os.system(f"wapiti  --update")
+        conf.os.system(f"wapiti  --flush-attack  -u https://{wapiti_host}  -v 2  -f html -o {wapiti_output}/wapiti_all")
         print("\n")
         print(conf.colored("\n Tempo usado: ", "white", attrs=["reverse"]) + conf.colored(f" {time.time() - startTime}          Segundos ", "yellow", attrs=["reverse"]))
 
